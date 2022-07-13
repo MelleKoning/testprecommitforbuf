@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package td1;
+
+option go_package="gitlab.com/Mellekoning/testprecommitforbuf/td1;td1";
+option csharp_namespace = "ourcompany.Protobuf.Td1";
+
+// Health information request message
+message HealthInfoRequest {
+}
+
+
+// Response to health information request
+message HealthInfoResponse {
+      //some data 
+      float adc_uin = 1; // [V]
+      
+}
+
+service TD1 {
+      
+      /* Td1 continuously requests health of radar */
+      rpc GetHealth (HealthInfoRequest) returns (HealthInfoResponse);
+}
+
